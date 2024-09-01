@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["esnext"], // Ensure only necessary libraries are included
+    "types": ["node", "jest"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,6 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitThis": false
-  }
+    "noImplicitThis": false,
+    "skipDefaultLibCheck": true
+  },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

@@ -26,5 +26,9 @@ export class QueueArray<T> implements IQueue<T> {
 }
 
 export class QueueLinkedList<T> implements IQueue<T> {
-  private list: ILinkedList<T> = new LinkedList();
+  private list: ILinkedList<T>;
+
+  constructor(list: ILinkedList<T>) {
+    this.list = list;
+  }
 }

@@ -4,9 +4,6 @@ export interface INode<T> {
 }
 
 export interface ILinkedList<T> {
-  head: INode<T> | null;
-  length: number;
-
   append(element: T): void;
   prepend(element: T): void;
   remove(value: T): void;
