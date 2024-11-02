@@ -1,19 +1,27 @@
-type IResolvedItem<T> = {
-  status: string;
-  value?: T;
-  reason?: T;
-};
+interface PromiseFulfilledResult<T> {
+  status: 'fulfilled';
+  value: T;
+}
+
+interface PromiseRejectedResult {
+  status: 'rejected';
+  reason: any;
+}
 
 export const promiseAllSettled = <T>(
-  promises: Promise<T>[]
-): Promise<IResolvedItem<T>[]> => {
+  promises: Array<T>
+): Promise<Array<PromiseFulfilledResult<T> | PromiseRejectedResult>> => {
   return new Promise((resolve, reject) => {
-    const resultArray: IResolvedItem<T>[] = [];
+    if (promises.length === 0) resolve([]);
+
+    const resultArray: Array<
+      PromiseFulfilledResult<T> | PromiseRejectedResult
+    > = [];
 
     let resolvedAmount: number = 0;
 
     promises.forEach((promise, index) => {
-      promise
+      Promise.resolve(promise)
         .then((data) => {
           resultArray[index] = { status: 'fulfilled', value: data };
           resolvedAmount++;

@@ -6,7 +6,7 @@ export const promiseAll = async <T>(promiseArr: Promise<T>[]) => {
     let fulfildedPromises = 0;
 
     promiseArr.forEach((promise, index) => {
-      promise
+      Promise.resolve(promise)
         .then((result) => {
           resultArr[index] = result;
           fulfildedPromises++;
