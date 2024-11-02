@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": ["esnext"], // Ensure only necessary libraries are included
+    "lib": ["esnext", "DOM"],
     "types": ["node", "jest"],
     "allowJs": true,
     "skipLibCheck": true,
